@@ -4,20 +4,20 @@
 }
 
 body{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     
 }
 
 .partie1{
     background-color: rgb(117, 232, 247);            
-    width: 31%; 
+    width: 33%; 
     padding-left: 2%;
-    padding-right: 2%;
+    margin-right: 2%
 }
 .partie2{
     background-color: rgb(255, 255, 255); 
-    width: 69%;
+    width: 66%;
     padding-left: 2%;
 }
 
