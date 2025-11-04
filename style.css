@@ -4,19 +4,20 @@
 }
 
 body{
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 2%;
+    margin-right: 2%;
     
 }
 
 .partie1{
     background-color: rgb(117, 232, 247);            
-    width: 31%; 
+    width: 35%; 
     padding-left: 2%;
+  
 }
 .partie2{
     background-color: rgb(255, 255, 255); 
-    width: 69%;
+    width: 64%;
     padding-left: 2%;
 }
 
@@ -27,7 +28,7 @@ body{
     margin-left: 0%;
 }
 .infoPerso, .compet, .langue, .Autres{
-    padding-left: 7%;
+    padding-left: 2.5%;
 
 }
 
