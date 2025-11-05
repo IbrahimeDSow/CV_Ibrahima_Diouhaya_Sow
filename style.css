@@ -10,15 +10,17 @@ body{
 }
 
 .partie1{
-    background-color: rgb(117, 232, 247);            
+    background-color: rgb(71, 73, 88); 
+    /*background-color: rgb(117, 232, 247); */           
     width: 35%; 
     padding-left: 2%;
+    color: aliceblue;
   
 }
 .partie2{
     background-color: rgb(255, 255, 255); 
-    width: 64%;
-    padding-left: 2%;
+    width: 64%;                   
+    padding-left: 2%;             /* marge interieure departie2 */
 }
 
 .contenu {
