@@ -1,35 +1,301 @@
 
+
 .img-fluid{
     text-align: center;
 }
 
-body{
-    margin-left: 2%;
-    margin-right: 2%;
-    
-}
-
+/* Remplacement : ne pas forcer des widths en % — laisser le flex gérer les colonnes.
+   On conserve les couleurs et l'espacement interne. */
 .partie1{
-    background-color: rgb(71, 73, 88);            
-    width: 35%; 
-    padding-left: 2%;
+    background-color: rgb(71, 73, 88);
+    padding: 16px;
     color: aliceblue;
-  
-}
-.partie2{
-    background-color: rgb(255, 255, 255); 
-    width: 64%;                   
-    padding-left: 2%;             /* marge interieure departie2 */
+    border-radius: 8px;
+    box-sizing: border-box;
+    /* largeur gérée par les règles flex plus bas */
 }
 
+.partie2{
+    background-color: rgb(255, 255, 255);
+    padding: 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    /* largeur gérée par les règles flex plus bas */
+}
+
+/* Conteneur principal : flex responsive */
 .contenu {
     display: flex;
-    border: 4px solid black; /* épaisseur, style et couleur */
-    border-radius: 9px;        /* coins arrondis  */
-    margin-left: 0%;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;           /* permet l'empilement sur petits écrans */
+    max-width: 1100px;
+    margin: 24px auto;         /* centre la carte */
+    padding: 24px;
+    box-sizing: border-box;
+    /* retirer margin-left:0% ou border trop large si présents ailleurs */
 }
+
+/* petits ajustements d'inner padding */
 .infoPerso, .compet, .langue, .Autres{
-    padding-left: 2.5%;
+    padding-left: 0.6rem;
+}
+/* ...existing code... */
 
+
+.img-fluid{
+    text-align: center;
 }
 
+/* Remplacement : ne pas forcer des widths en % — laisser le flex gérer les colonnes.
+   On conserve les couleurs et l'espacement interne. */
+.partie1{
+    background-color: rgb(71, 73, 88);
+    padding: 16px;
+    color: aliceblue;
+    border-radius: 8px;
+    box-sizing: border-box;
+    /* largeur gérée par les règles flex plus bas */
+}
+
+.partie2{
+    background-color: rgb(255, 255, 255);
+    padding: 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    /* largeur gérée par les règles flex plus bas */
+}
+
+/* Conteneur principal : flex responsive */
+.contenu {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;           /* permet l'empilement sur petits écrans */
+    max-width: 1100px;
+    margin: 24px auto;         /* centre la carte */
+    padding: 24px;
+    box-sizing: border-box;
+    /* retirer margin-left:0% ou border trop large si présents ailleurs */
+}
+
+/* petits ajustements d'inner padding */
+.infoPerso, .compet, .langue, .Autres{
+    padding-left: 0.6rem;
+}
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Couleurs & variables */
+:root{
+  --bg: #f4f6f9;
+  --card: #fff;
+  --accent: #0d6efd;
+  --text: #222;
+  --muted: #6c757d;
+  --gap: 24px;
+  --max-width: 1100px;
+}
+
+/* Reset box sizing */
+*{ box-sizing: border-box; }
+
+/* Page */
+body{
+  margin:0;
+  padding:20px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Conteneur principal */
+.contenu{
+  max-width: var(--max-width);
+  margin: 24px auto;
+  background: var(--card);
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+  flex-wrap: wrap; /* permet la responsivité */
+}
+
+/* Colonnes */
+.partie1{
+  flex: 0 0 300px; /* largeur fixe sur grand écran */
+  min-width: 220px;
+  padding: 8px 12px;
+}
+.partie2{
+  flex: 1 1 560px; /* prend le reste */
+  min-width: 260px;
+  padding: 8px 12px;
+}
+
+/* Image */
+.img-fluid img{
+  width: 100%;
+  height: auto;
+  max-width: 260px;
+  display:block;
+  margin: 0 auto 12px;
+  border-radius: 60%;
+  object-fit: cover;
+}
+
+/* Titres et texte */
+h1{ font-size: 1.6rem; margin: 6px 0 8px; }
+h3{ font-size: 1.05rem; margin: 12px 0 6px; color:var(--accent); }
+h4{ color:var(--muted); margin:0 0 12px; }
+
+.partie2 p{
+  line-height:1.5;
+  margin-bottom:12px;
+  text-align: justify;
+}
+
+/* Listes et petits paragraphes */
+.infoPerso p,
+.compet p,
+.langue p,
+.Autres ul li,
+.partie2 ul li{
+  margin:6px 0;
+  line-height:1.4;
+  color:#333;
+}
+
+/* Règles */
+hr{ border:none; border-top:1px solid #eee; margin:12px 0; }
+
+/* Responsive breakpoints */
+
+/* Large tablets / small desktops */
+@media (max-width: 992px){
+  :root{ --gap: 18px; }
+  .contenu{ padding:18px; gap:18px; }
+  .partie1{ flex: 0 0 240px; }
+  h1{ font-size:1.45rem; }
+}
+
+/* Tablets and small screens: empilement vertical */
+@media (max-width: 768px){
+  .contenu{ flex-direction: column; padding:14px; gap:12px; }
+  .partie1, .partie2{ flex:1 1 100%; min-width:0; }
+  .img-fluid img{ max-width:180px; }
+  h1{ font-size:1.3rem; }
+  h3{ font-size:1rem; }
+  body{ padding:14px; }
+}
+
+/* Mobile - very small */
+@media (max-width: 480px){
+  body{ padding:12px; }
+  .contenu{ padding:12px; border-radius:8px; }
+  .img-fluid img{ max-width:150px; }
+  h1{ font-size:1.15rem; }
+  .partie2 p{ font-size:0.97rem; }
+  .partie2 ul{ padding-left:1rem; }
+}
+
+/* Accessibilité: focus outlines */
+a:focus, button:focus, input:focus{
+  outline: 3px solid rgba(13,110,253,0.18);
+  outline-offset: 2px;
+}
+
+/* Optional: améliorations pour les images manquantes */
+img[alt=""], img[alt=" "]{ filter: grayscale(40%); opacity:0.9; }
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Espaces à droite pour certains appareils / largeurs dans l'inspecteur */
+
+/* Petits téléphones (ex. 320–380px) */
+@media (min-width: 320px) and (max-width: 380px) {
+  body { padding-right: 20px; }
+  .contenu { padding-right: 8px; }
+}
+
+/* iPhone 12/13/14 mini / similaires (≈390px) */
+@media (min-width: 386px) and (max-width: 400px) {
+  body { padding-right: 24px; }
+  .contenu { padding-right: 10px; }
+}
+
+/* Téléphones larges (≈411–420 / iPhone Plus, certains Android) */
+@media (min-width: 401px) and (max-width: 430px) {
+  body { padding-right: 28px; }
+  .contenu { padding-right: 12px; }
+}
+
+/* Petit tablette / phablet (≈414–768) */
+@media (min-width: 431px) and (max-width: 768px) {
+  body { padding-right: 32px; }
+  .contenu { padding-right: 16px; }
+}
+
+/* Tablettes en paysage (ex. iPad landscape) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body { padding-right: 40px; }
+  .contenu { padding-right: 24px; }
+}
+
+/* Option: si tu veux un espace visible seulement dans l'inspecteur (mode appareil),
+   tu peux rajouter une classe .inspector-space sur <body> via la console pour tester : 
+   document.body.classList.add('inspector-space'); et cibler .inspector-space{ padding-right:... } */
+/* filepath: c:\Users\Hp\Desktop\HTML_CSS_JS\essaiGITHUB\style.css */
+/* ...existing code... */
+
+/* Espaces à droite pour certains appareils / largeurs dans l'inspecteur */
+
+/* Petits téléphones (ex. 320–380px) */
+@media (min-width: 320px) and (max-width: 380px) {
+  body { padding-right: 20px; }
+  .contenu { padding-right: 8px; }
+}
+
+/* iPhone 12/13/14 mini / similaires (≈390px) */
+@media (min-width: 386px) and (max-width: 400px) {
+  body { padding-right: 24px; }
+  .contenu { padding-right: 10px; }
+}
+
+/* Téléphones larges (≈411–420 / iPhone Plus, certains Android) */
+@media (min-width: 401px) and (max-width: 430px) {
+  body { padding-right: 28px; }
+  .contenu { padding-right: 12px; }
+}
+
+/* Petit tablette / phablet (≈414–768) */
+@media (min-width: 431px) and (max-width: 768px) {
+  body { padding-right: 32px; }
+  .contenu { padding-right: 16px; }
+}
+
+/* Tablettes en paysage (ex. iPad landscape) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body { padding-right: 40px; }
+  .contenu { padding-right: 24px; }
+}
+
+/* Option: si tu veux un espace visible seulement dans l'inspecteur (mode appareil),
+   tu peux rajouter une classe .inspector-space sur <body> via la console pour tester : 
+   document.body.classList.add('inspector-space'); et cibler .inspector-space{ padding-right:... } */
+
+   /* ...existing code... */
+
+/* Forcer le texte de la colonne de gauche en blanc */
+.partie1,
+.partie1 * {
+  color: #ffffff !important;
+}
+
+/* ...existing code... */
